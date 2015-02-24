@@ -54,7 +54,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 107, 32));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 107, 32));
         jButton1.getAccessibleContext().setAccessibleName("btnExit");
 
         jButton2.setBackground(new java.awt.Color(153, 255, 0));
@@ -65,7 +65,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 102, 32));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 102, 32));
         jButton2.getAccessibleContext().setAccessibleName("btnPlay");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
