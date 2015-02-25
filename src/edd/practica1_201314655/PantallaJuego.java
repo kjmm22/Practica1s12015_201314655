@@ -6,6 +6,10 @@
 
 package edd.practica1_201314655;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Personal
@@ -31,6 +35,17 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PlantsVsZombies");
@@ -44,53 +59,141 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edd/practica1_201314655/Images/Escenario.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(140, 50, 795, 626);
+        jLabel1.setBounds(150, 100, 795, 630);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(10, 100, 130, 630);
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(960, 100, 120, 630);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 680));
+        jLabel2.setName("lblJugador1"); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 20, 130, 30);
+        jLabel2.getAccessibleContext().setAccessibleName("lblJugador1");
+
+        jLabel3.setName("lblJugador2"); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(960, 30, 120, 30);
+        jLabel3.getAccessibleContext().setAccessibleName("lblJugador2");
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 730));
         jPanel1.getAccessibleContext().setAccessibleName("PanelJuego");
+
+        jMenu3.setText("Acciones");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Reportes");
+
+        jMenuItem2.setText("Estructura de Jugadores");
+        jMenu4.add(jMenuItem2);
+
+        jMenuItem3.setText("Estructura de Plantas");
+        jMenu4.add(jMenuItem3);
+
+        jMenuItem4.setText("Estructura de Zombies");
+        jMenu4.add(jMenuItem4);
+
+        jMenuItem5.setText("Estructura de Matriz");
+        jMenu4.add(jMenuItem5);
+
+        jMenuBar2.add(jMenu4);
+
+        setJMenuBar(jMenuBar2);
 
         getAccessibleContext().setAccessibleName("PantallaJuego");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PantallaJuego().setVisible(true);
             }
         });
     }
+    
+    boolean pausa=false; 
+    public static boolean utilizaHilo=false;
+    private Thread hilos;
+    private int x=0;
+    private int y=0;
+    
+    public void InicioThread(){
+        //* hilos= new Thread(this);
+        hilos.start();
+    }
+    
+//    public void run() {
+//        while(true){
+//            if(utilizaHilo){
+//                break;
+//            }
+//            try{
+//                Thread.sleep(5000);
+//                synchronized(this){
+//                    x = (int)lblPlanta.getLocation().getX();
+//                    y = (int)lblPlanta.getLocation().getY();
+//                    lblPlanta.setLocation(new Point(x + 64,y));
+//                }
+//            }catch(InterruptedException e){
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+//-------------------------------------------------------------------------------------------------------
+    
+        public void keyPressed(KeyEvent evt) {
+
+            if(evt.getKeyChar()=='p'){ 
+                    Pausar();
+            }
+
+            if (evt.getKeyChar()=='o'){
+                QuitarPausa();
+            }
+        }
+//---------------------------------------------------------------------------------------------------------
+	public void keyReleased(KeyEvent evt) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+//---------------------------------------------------------------------------------------------------------------------------	
+	public void keyTyped(KeyEvent evt) {
+		// TODO Auto-generated method stub
+
+	}
+//------------------------------------------------------------------------------------------------------
+    
+        private synchronized void Pausar(){
+		pausa=true;
+        }
+
+//---------------------------------------------------------------------------------------------------------------------------
+
+	private synchronized void QuitarPausa(){
+                pausa=false;
+		notify();
+
+	}
+
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
