@@ -17,6 +17,7 @@ public class AgregarZombies extends javax.swing.JFrame {
      */
     public AgregarZombies() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

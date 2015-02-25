@@ -89,6 +89,11 @@ public class PantallaJugadores extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Comenzar Juego");
         jButton3.setName("btnComenzar"); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3);
         jButton3.setBounds(310, 270, 170, 40);
 
@@ -119,6 +124,11 @@ public class PantallaJugadores extends javax.swing.JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); 
         new PantallaJugadorZombies().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE); 
+        new PantallaJuego().setVisible(true);       // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
